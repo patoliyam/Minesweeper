@@ -54,6 +54,8 @@ void printB(int**B,int r,int c)
 
 int main()
 {   int flag1=0, flag2=0;
+    time_t elap;
+    time_t init = time(0);
     int r, c, b;
     cout << "Number of rows : ";
     cin >> r;
@@ -116,11 +118,11 @@ int main()
             }
 
         }
-        
         if (count == b)
-        {
+        {   time_t now = time(0);
+            elap=now-init;
             printB(B,r,c);
-            cout << "CONGRATULATIONS!! You won the game.\n";  // if number of *s left =b then print that u hasve won the game.
+            cout << "CONGRATULATIONS!! You won the game.\n Time elapsed is "<<elap<<" seconds";  // if number of *s left =b then print that u hasve won the game.
             flag1=1;
 
         }
@@ -140,7 +142,11 @@ int main()
                     cout <<" "<<A[i][j]<<" ";
                 }
                 cout << endl;
+
             }
+            time_t now = time(0);
+            elap=now-init;
+            cout<<"Time elapsed is "<<elap<<" seconds"<<endl;
 
 
             int x, y;
@@ -167,7 +173,9 @@ int main()
             {
                 if (B[x - 1][y - 1] == 1) {
                     printB(B, r, c);
-                    cout << "\n Game Over!\n \n";//Now print B matrix with highlighting the wrong one.
+                    time_t now = time(0);
+                    elap=now-init;
+                    cout << "\n Game Over!\n Time elapsed is "<<elap<<" seconds"<<"\n";//Now print B matrix with highlighting the wrong one.
                     flag2 = 1;
                 }
                 else {
